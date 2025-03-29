@@ -1,0 +1,133 @@
+Pachete:
+- COMPARATORS: (implementeaza interfata Comparator)
+  - *LandingComparator*
+    - metode:
+      - compare - face comparatia in functie de urgenta de aterizare si apoi dupa timpul dorit de aterizare
+  - *TakeoffComparator*
+    - metode:
+      - compare - compara inn functie de dimpul dorit de decolare
+
+- ENTITIES:
+  - *Airplane*
+    - atribute:
+      - model - modelul avionului
+      - idFlight - identificator unic pentru zborul curent
+      - departure - locatia de decolare
+      - destination - locatia de aterizare
+      - wantedTime - timestamp-ul la care se doreste decolarea/aterizarea avionului
+      - actualTime - timestamp-ul la care se efctueaza efectiv operatia (mai devreme, daca este disponibila pista, sau mai tarziu, daca este ocupata pista la momentul dorit)
+      - EnumStatus - enumaratie a posibilelor status-uri pe care le poate avea avionul
+      - status - statusul avionului (este o valoare din EnumStatus)
+      - urgent - verifica daca zborul este urgent sau nu (0 - nu este; 1 - este urgenta)
+    - constructori:
+      - atribuie valorile primite ca parametrii tuturor atributelor clasei
+    - metode:
+      - gettere si settere pentru fiecare atribut
+      - toString - concateneaza intr-un string toate datele despre avion, in formatul cerut in enunt, si il returneaza
+  - *NarrowBodyAirplane* (extinde Airplane => mosteneste toate atributele si metodele din Airplane)
+    - constructori:
+      - se folosesc constructorii clasei parinte
+    - metode:
+      - toString - suprascriu metota clasei parinte cu acelasi nume; adaug la inceput tipul avionului (Narrow Body) si concatenez cu metoda calsei parinte
+  - *WideBodyAirplane* (extinde Airplane => mosteneste toate atributele si metodele din Airplane)
+      - constructori:
+          - se folosesc constructorii clasei parinte
+      - metode:
+          - toString - suprascriu metota clasei parinte cu acelasi nume; adaug la inceput tipul avionului (Wide Bod) si concatenez cu metoda calsei parinte
+  - *Runway* (clasa generica de obiecte E care extind clasa Airplane)
+    - atribute:
+      - idRunway - identificator unic pentru pista
+      - usage - cum este folosita pista (decolare/aterizare)
+      - acceptedAirplane - tipul de avion acceptat (wide/narrow)
+      - airplanes - coada de prioritati a avionelor alocate pistei curente
+      - status - statusul pistei (free/occupied)
+    - constructori:
+      - atribuie valorile primite ca parametrii tuturor atributelor clasei 
+      - creez un nou obiect pentru coada de avioane
+      - atribui initial status-ul "FREE" pistei
+    - metode:
+      - gettere si settere pentru fiecare atribut
+      - addAirplane - adauga un avion (de tipul generic E), dat ca parametru, in lista de avioane
+      - toString - creaza un string in care adaug id-ul pistei si statusul acesteia, dupa care pun datele avioanelor care sunt in stare de waiting (cele care inca nu si-au executat manevra si asteapta eliberarea pistei) si returnez sirul
+
+- EXCEPTIONS: (mostenesc clasa Exceptions)
+  - *IncorrectRunwayException*
+    - constructori:
+      - utilizeaza constructorul cu parametru al clasei parinte
+  - *UnavailableRunwayException*
+      - constructori:
+          - utilizeaza constructorul cu parametru al clasei parinte
+
+- FUNCTIONS: 
+  - *RunwayFunctions* (clasa generica de obiecte E care extind clasa Airplane) - functiile mai generale utilizate pentru implementarea comenzilor
+    - atribute:
+      - runways - lista tuturor pistelor
+      - command - comanda curenta data de utilizator (fiecare element a listei este un atribut al comenzii)
+    - constructori:
+      - creez obiecte noi pentru cele doua liste si atribui comanda
+    - metode:
+      - gettere si settere pentru fiecare atribu
+      - addRunway - adauga un element, dat ca parametru, in lista de piste
+      - findRunway - cauta pista cu id-ul dat ca parametru si il returneaza
+      - findFlight - cauta zborul generic (poate fi de tip Airplane sau orice urmas al sau) cu id-ul dat ca parametru si il returneaza
+  - **! pentru clasele urmatoare atributele reprezinta elementele date in cadrul comenzii !**
+  - *AddRunwayInUse* (extinde RunwayFunctions)
+    - atribute:
+      - timestamp - timestamp-ul comenzii
+      - idRunway - identificatorul unic al pistei
+      - usage - tipul pistei (decolare\aterizare)
+      - accetedAirplane - tipul de avion acceptat (wide/narrow)
+    - constructori:
+      - atribui fiecarui atribut valoarea corespondenta din lista de elemente ale comenzii; in cazul in care datele sunt invalide se arunca exceptie si este tratata tot aici
+    - metode:
+      - addRunwayInUseFunction - adaug in lista de piste un obiect nou de tip Runway<E>, care foloseste comparatorul aferent in functie de utilitatea pistei
+  - *AllocatePlane* (extinde RunwayFunctions)
+    - atribute:
+      - timestamp - timestamp-ul comenzii
+      - planeType - tipul avionului (wide/narrow)
+      - idFlight - identificatorul unic al zborului
+      - departure - locatia de decolare
+      - destination - locatia destinatiei
+      - wantedTime - timpul la care se doreste efectuarea manevrei
+      - idRunway - identificatorul unic al pistei
+      - status - status-ul avionului (waiting/landed/departed)
+      - usage - tipul pistei asociate (decolare/aterizare)
+      - urgent - verifica daca zborul este urgent sau nu
+    - constructori:
+      - atribui fiecarui atribut valoarea corespondenta din lista de elemente ale comenzii; in cazul in care datele sunt invalide se arunca exceptie si este tratata tot aici
+    - metode:
+      - createAirplane - creaza si returneaza un obiect de tip generic in functie de tipul avionului
+      - allocatePlaneFunction - creez un nou avion, caut pista dorita si verific compatibilitatea dintre tipul pistei si actiunea avionului; daca sunt diferite arunc o exceptie, altfel adaug avionul nou in lista pistelor
+  - *PermissionForManeuver* (extinde RunwayFunctions)
+    - atribute:
+      - timestamp - timestamp-ul comenzii curente
+      - idRunway - identificatorul unic al pistei
+    - constructori:
+      - atribui fiecarui atribut valoarea corespondenta din lista de elemente ale comenzii; in cazul in care datele sunt invalide se arunca exceptie si este tratata tot aici
+    - metode:
+      - permissionForManeuverFunction - daca pista este ocupata se arunca o exceptie, altfel caut pista data si extrag primul avion cu status waiting din coada de prioritati a pistei; avionului extras ii setez statusul de terminat (landed/departed), timestampul cu cel al comenzii si status-ul pistei ca ocupat; de asemenea returnez timestamp-ul comenzii + 10/5 (in functide de landing/takeoff) -> timpul la care se elibereaza pista
+  - *RunwayInfo* (extinde RunwayFunctions)
+    - atribute:
+      - timestamp - timestamp-ul comenzii curente
+      - idRunway - identificatorul unic al pistei
+    - constructori:
+      - atribui fiecarui atribut valoarea corespondenta din lista de elemente ale comenzii; in cazul in care datele sunt invalide se arunca exceptie si este tratata tot aici
+    - metode:
+      - runwayInfoFunction - caut pista cu id-ul dat si daca s-a terminat perioada de ocupare a pistei ii setez statusul ca "FREE"; intr-un block de try-catch deschid steram-ul fisierului in care se face afisarea si printez datele pistei
+  - *FlightInfo* (extinde RunwayFunctions)
+    - atribute:
+      - timestamp - timestamp-ul comenzii curente
+      - idFlight - identificatorul unic al zborului
+    - constructori:
+      - atribui fiecarui atribut valoarea corespondenta din lista de elemente ale comenzii; in cazul in care datele sunt invalide se arunca exceptie si este tratata tot aici
+    - metode:
+      - flightInfoFunction - caut zborul si afisez datele acestuia
+
+- ORG:
+  - *Main*
+    - atribute:
+      - maneuverTimestamp - tine minte timestamp-ul la care isi termina exectia ultima manevra efectuata
+    - metode:
+      - readCommands - deschide fisierul de citire si din care citeste cate o linie si pentru acestea apelez functia de parsare
+      - parseCommand - intr-un block try-catch, despart comanda citita in componente, si in functie de numele comenzii (al doilea element al sirului) apelez functiile aferente; daca exceptiile sunt de tipul dat in enunt, afisez continutul in fisierul board_exceptions, altfel afisez la consola
+      - main - initializez maneuverTimestamp cu 0 si apelez metoda de citire a comenzilor

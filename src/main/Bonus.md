@@ -1,0 +1,9 @@
+- o functionalitate aditionala ar putea fi realocarea unui avion spre o alta pista in caz de urgenta
+- aceasta poate presupune o clasa separata (ex. Emergency)
+  - atribute:
+    - emergencyAirplanes - coada de prioritati in care sa fie salvate toate avioanele cu probleme, care pot fi sortate in functie de urgenta lor (defecte tehnice majore > urgente medicale > defectiuni tehnice usoare....)
+    - freeRunways - litsa cu piste momentan neocupate
+  - metode:
+    - signalEmergency - adauga un avion in coada de urgente (un obiect care extinde airplane si contine un atribut tipUrgenta si un int  cu cod de prioritate)
+    - allocateNewRunway - aloca o noua pista libera (indiferent daca aceasta este de aterizare sau de decolare) si actualizeaza statusul avionului si al pistelor implicate
+    - EmergenciesInfo - afiseaza toate avioanele cu urgente in ordinea prioritatii lor

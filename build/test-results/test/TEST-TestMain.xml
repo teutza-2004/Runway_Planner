@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestMain" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-01-12T14:23:40" hostname="DESKTOP-UPAEPTN" time="0.311">
+  <properties/>
+  <testcase name="maneuverPrintFree05()" classname="TestMain" time="0.107"/>
+  <testcase name="exceptionsFlightSearch02()" classname="TestMain" time="0.019"/>
+  <testcase name="exceptionsAll08()" classname="TestMain" time="0.033"/>
+  <testcase name="basicFlightSearch01()" classname="TestMain" time="0.016"/>
+  <testcase name="basicRunwayInfo03()" classname="TestMain" time="0.019"/>
+  <testcase name="exceptionsManeuver07()" classname="TestMain" time="0.026"/>
+  <testcase name="maneuverPrintOccupied06()" classname="TestMain" time="0.028"/>
+  <testcase name="urgentRunwayInfo04()" classname="TestMain" time="0.016"/>
+  <testcase name="allCases09()" classname="TestMain" time="0.037"/>
+  <system-out><![CDATA[Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Index 9 out of bounds for length 9
+Cannot invoke "java.io.FileOutputStream.close()" because "outFileFlightInfo" is null
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
